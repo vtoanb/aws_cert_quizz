@@ -27,6 +27,7 @@ function ResultImg(props) {
 
   return (
     <img src={props.result ? bingo : oops}
+          width='100%'
           alt='result' />
   )
 }
@@ -92,7 +93,7 @@ class App extends Component {
     return (
       <div className="App bg-light">
         <header className="App-header">
-          <div className="col-lg-6 col-12 px-2 my-3 p-3 bg-white rounded shadow-sm">
+          <div className="col-lg-6 col-12 mx-2 my-3 p-3 bg-white rounded shadow-sm">
             <ResultImg result={this.state.result} />
             <table className="table table-borderless">
               <thead><tr><th>{this.state.question}</th></tr></thead>
