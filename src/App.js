@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component } from 'react';
-import bingo from './giphy.webp';
-import oops from './oops.gif'
+import correct from './correct.svg';
+import incorrect from './incorrect.png'
 import _ from 'lodash';
 import './App.css';
 
@@ -26,9 +26,11 @@ function ResultImg(props) {
   }
 
   return (
-    <img src={props.result ? bingo : oops}
-          width='100%'
-          alt='result' />
+    <div className='d-flex justify-content-center'>
+      <img src={props.result ? correct : incorrect}
+            width='80px'
+            alt='result' />
+    </div>
   )
 }
 
@@ -92,8 +94,8 @@ class App extends Component {
 
     return (
       <div className="App bg-light">
-        <header className="App-header">
-          <div className="col-lg-6 col-12 mx-2 my-3 p-3 bg-white rounded shadow-sm">
+        <header className="App-header mx-3">
+          <div className="col-lg-6 col-12 my-3 p-3 bg-white rounded shadow-sm">
             <ResultImg result={this.state.result} />
             <table className="table table-borderless">
               <thead><tr><th>{this.state.question}</th></tr></thead>
@@ -101,9 +103,11 @@ class App extends Component {
                 { this.choices }
               </tbody>
             </table>
-            <p><small>{this.state.result ? this.state.answer : '' }</small></p>
-            <button className="btn" onClick={this.handleShuffle}>another Quizz</button>
-            <button className="submitBtn btn btn-outline-primary" onClick={this.handleSubmit}>Submit</button>
+            <p className='text-muted text-small'>{this.state.result ? this.state.answer : '' }</p>
+            <div className='d-flex justify-content-center'>
+              <button className="btn" onClick={this.handleShuffle}>another Quizz</button>
+              <button className="submitBtn btn btn-outline-primary" onClick={this.handleSubmit}>Submit</button>
+            </div>
           </div>
         </header>
       </div>

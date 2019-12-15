@@ -1,0 +1,12 @@
+This quizz parsing is missing some text:
+
+# 46. Rank the factors considered in terminating an instance that is part of an Auto Scaling
+# group, from highest priority to lowest priority.
+# A. Age of launch configuration, availability zone with the most instances, nearness to
+# next billing hour
+# B. Availability zone with the most instances, age of launch configuration, nearness to
+# next billing hour
+# C. Age of launch configuration, nearness to next billing hour, availability zone with the
+# most instances
+# D. Availability zone with the most instances, nearness to next billing hour, age of launch
+# configuration
