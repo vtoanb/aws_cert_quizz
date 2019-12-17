@@ -1,5 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import correct from './correct.svg';
 import incorrect from './incorrect.png'
 import _ from 'lodash';
@@ -34,7 +40,8 @@ function ResultImg(props) {
   )
 }
 
-class App extends Component {
+
+class Quizz extends Component {
   constructor(props) {
     super(props)
 
@@ -106,7 +113,7 @@ class App extends Component {
             <p className='text-muted text-small'>{this.state.result ? this.state.answer : '' }</p>
             <div className='d-flex justify-content-center'>
               <button className="btn" onClick={this.handleShuffle}>another Quizz</button>
-              <button className="submitBtn btn btn-outline-primary" onClick={this.handleSubmit}>Submit</button>
+              <button className="submitBtn btn btn-outline-primary"  onClick={this.handleSubmit}>Submit</button>
             </div>
           </div>
         </header>
@@ -115,4 +122,37 @@ class App extends Component {
   }
 }
 
-export default App;
+function GCP() {
+  return(<div></div>)
+}
+
+export default function App() {
+  return (
+    <Router className="body">
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <a className="navbar-brand" href="#">Quizz</a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+
+          <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+              <li className="nav-item active"><Link to="/" className="nav-link">AWS</Link></li>
+              <li className="nav-item"><Link to="/gcp" className="nav-link">GCP</Link></li>
+            </ul>
+          </div>
+        </nav>
+
+        <Switch>
+          <Route path="/gcp">
+            <GCP />
+          </Route>
+          <Route path="/">
+            <Quizz />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}
